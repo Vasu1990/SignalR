@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8615916841af45df93d308797e36419b" Name="Diagram1" >
+        <EntityTypeShape EntityType="proworldzdbNEWModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.City" Width="1.5" PointX="5.25" PointY="24.625" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.Community" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.ContactU" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.Country" Width="1.5" PointX="0.75" PointY="24.625" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.Degree" Width="1.5" PointX="7.5" PointY="31.375" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.Friend" Width="1.5" PointX="9.75" PointY="20" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.IndustryType" Width="1.5" PointX="10.5" PointY="34.375" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.LatestTechnology" Width="1.5" PointX="9.75" PointY="23.875" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.LatestTutorial" Width="1.5" PointX="9.75" PointY="16.125" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.Lkp_FriendShipStatus" Width="1.5" PointX="7.5" PointY="19.375" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.MasterContent" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.MasterFilePath" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.MasterModuleTypeData" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.MasterUrl" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.State" Width="1.5" PointX="3" PointY="25" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserGeneralInfomation" Width="1.5" PointX="9.75" PointY="45.25" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserPersonalInfomation" Width="1.5" PointX="9.75" PointY="55.125" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserPostComment" Width="1.5" PointX="12" PointY="19.25" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserPost" Width="1.5" PointX="9.75" PointY="11.875" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserProfessionalQualification" Width="1.5" PointX="12.75" PointY="23.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserQualification" Width="1.5" PointX="9.75" PointY="29.125" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserResume" Width="1.5" PointX="9.75" PointY="41.5" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.User" Width="1.5" PointX="7.5" PointY="22.25" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserType" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="proworldzdbNEWModel.UserVideo" Width="1.5" PointX="9.75" PointY="49.875" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_Cities_dbo_States_StateId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_Users_dbo_Cities_CityId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_States_dbo_Countries_CountryId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_Users_dbo_Countries_CountryName" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Degrees_DegreeName" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_Friends_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_LatestTechnologies_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_LatestTutorials_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_Users_dbo_States_StateId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserGeneralInfomations_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserPersonalInfomations_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_UserPosts_PostId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserPosts_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserResumes_dbo_Users_UserId" />
+        <AssociationConnector Association="proworldzdbNEWModel.FK_dbo_UserVideos_dbo_Users_UserId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

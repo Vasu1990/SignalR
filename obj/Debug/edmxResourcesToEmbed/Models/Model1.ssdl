@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proworldzdbNEWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Communities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Degrees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Friends">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="FriendId" Type="int" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="FriendShipStatusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IndustryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LatestTechnologies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommunityId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SubCommunityId" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="Tag" Type="nvarchar(max)" />
+    <Property Name="Topic" Type="nvarchar(max)" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="VideoUrl" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LatestTutorials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommunityId" Type="int" Nullable="false" />
+    <Property Name="SubCommunityId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="Tag" Type="nvarchar(max)" />
+    <Property Name="Topic" Type="nvarchar(max)" />
+    <Property Name="VideoUrl" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lkp_FriendShipStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MasterContents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleId" Type="int" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MasterFilePaths">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleId" Type="int" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MasterModuleTypeDatas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleId" Type="int" Nullable="false" />
+    <Property Name="ModuleTypeId" Type="int" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MasterUrls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleId" Type="int" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserGeneralInfomations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar(max)" />
+    <Property Name="Address2" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="FatherName" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserPersonalInfomations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPostComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar(max)" />
+    <Property Name="Post" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="PostType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfessionalQualifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="Designation" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IsCurrentEmployee" Type="bit" Nullable="false" />
+    <Property Name="CurrentIndustry" Type="int" Nullable="false" />
+    <Property Name="UserRole" Type="nvarchar(max)" />
+    <Property Name="Skill" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserQualifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar(max)" />
+    <Property Name="DegreeName" Type="int" Nullable="false" />
+    <Property Name="Percentage" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserResumes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="IsVisaHolder" Type="bit" Nullable="false" />
+    <Property Name="IsForeignWorker" Type="bit" Nullable="false" />
+    <Property Name="TotalExperience" Type="nvarchar(max)" />
+    <Property Name="ResumePath" Type="nvarchar(max)" />
+    <Property Name="CoverLetterPath" Type="nvarchar(max)" />
+    <Property Name="ResumeContent" Type="nvarchar(max)" />
+    <Property Name="CoverLetterContent" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserTypeId" Type="int" Nullable="false" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CommunityId" Type="int" Nullable="false" />
+    <Property Name="SubCommunityId" Type="int" Nullable="false" />
+    <Property Name="CommunityName" Type="nvarchar(max)" />
+    <Property Name="SubCommunityName" Type="nvarchar(max)" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsOnline" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserVideos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="VideoResumeUrl" Type="nvarchar(max)" />
+    <Property Name="ArtWorkYouTube1" Type="nvarchar(max)" />
+    <Property Name="ArtWorkYouTube2" Type="nvarchar(max)" />
+    <Property Name="ArtWorkYouTube3" Type="nvarchar(max)" />
+    <Property Name="ArtWorkYouTube4" Type="nvarchar(max)" />
+    <Property Name="ArtWorkYouTube5" Type="nvarchar(max)" />
+    <Property Name="ArtWorkUrl1" Type="nvarchar(max)" />
+    <Property Name="ArtWorkUrl2" Type="nvarchar(max)" />
+    <Property Name="ArtWorkUrl3" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Cities_dbo_States_StateId">
+    <End Role="States" Type="Self.States" Multiplicity="1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId">
+    <End Role="Lkp_FriendShipStatus" Type="Self.Lkp_FriendShipStatus" Multiplicity="1" />
+    <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lkp_FriendShipStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="FriendShipStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Friends_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LatestTechnologies_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="LatestTechnologies" Type="Self.LatestTechnologies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestTechnologies">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LatestTutorials_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="LatestTutorials" Type="Self.LatestTutorials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestTutorials">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_States_dbo_Countries_CountryId">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="States" Type="Self.States" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserGeneralInfomations_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserGeneralInfomations" Type="Self.UserGeneralInfomations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGeneralInfomations">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPersonalInfomations_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserPersonalInfomations" Type="Self.UserPersonalInfomations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPersonalInfomations">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPostComments_dbo_UserPosts_PostId">
+    <End Role="UserPosts" Type="Self.UserPosts" Multiplicity="1" />
+    <End Role="UserPostComments" Type="Self.UserPostComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPostComments">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPostComments_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserPostComments" Type="Self.UserPostComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPostComments">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPosts_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserPosts" Type="Self.UserPosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPosts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry">
+    <End Role="IndustryTypes" Type="Self.IndustryTypes" Multiplicity="1" />
+    <End Role="UserProfessionalQualifications" Type="Self.UserProfessionalQualifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndustryTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfessionalQualifications">
+        <PropertyRef Name="CurrentIndustry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserProfessionalQualifications_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserProfessionalQualifications" Type="Self.UserProfessionalQualifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfessionalQualifications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserQualifications_dbo_Degrees_DegreeName">
+    <End Role="Degrees" Type="Self.Degrees" Multiplicity="1" />
+    <End Role="UserQualifications" Type="Self.UserQualifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degrees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserQualifications">
+        <PropertyRef Name="DegreeName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserQualifications_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserQualifications" Type="Self.UserQualifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserQualifications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserResumes_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserResumes" Type="Self.UserResumes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserResumes">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_Cities_CityId">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_Countries_CountryName">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_States_StateId">
+    <End Role="States" Type="Self.States" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserVideos_dbo_Users_UserId">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserVideos" Type="Self.UserVideos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserVideos">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="proworldzdbNEWModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Communities" EntityType="Self.Communities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Degrees" EntityType="Self.Degrees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndustryTypes" EntityType="Self.IndustryTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LatestTechnologies" EntityType="Self.LatestTechnologies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LatestTutorials" EntityType="Self.LatestTutorials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lkp_FriendShipStatus" EntityType="Self.Lkp_FriendShipStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterContents" EntityType="Self.MasterContents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterFilePaths" EntityType="Self.MasterFilePaths" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterModuleTypeDatas" EntityType="Self.MasterModuleTypeDatas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterUrls" EntityType="Self.MasterUrls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGeneralInfomations" EntityType="Self.UserGeneralInfomations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPersonalInfomations" EntityType="Self.UserPersonalInfomations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPostComments" EntityType="Self.UserPostComments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPosts" EntityType="Self.UserPosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfessionalQualifications" EntityType="Self.UserProfessionalQualifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserQualifications" EntityType="Self.UserQualifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserResumes" EntityType="Self.UserResumes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserVideos" EntityType="Self.UserVideos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Cities_dbo_States_StateId" Association="Self.FK_dbo_Cities_dbo_States_StateId">
+      <End Role="States" EntitySet="States" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId" Association="Self.FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId">
+      <End Role="Lkp_FriendShipStatus" EntitySet="Lkp_FriendShipStatus" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Friends_dbo_Users_UserId" Association="Self.FK_dbo_Friends_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LatestTechnologies_dbo_Users_UserId" Association="Self.FK_dbo_LatestTechnologies_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LatestTechnologies" EntitySet="LatestTechnologies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LatestTutorials_dbo_Users_UserId" Association="Self.FK_dbo_LatestTutorials_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LatestTutorials" EntitySet="LatestTutorials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_States_dbo_Countries_CountryId" Association="Self.FK_dbo_States_dbo_Countries_CountryId">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserGeneralInfomations_dbo_Users_UserId" Association="Self.FK_dbo_UserGeneralInfomations_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserGeneralInfomations" EntitySet="UserGeneralInfomations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPersonalInfomations_dbo_Users_UserId" Association="Self.FK_dbo_UserPersonalInfomations_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPersonalInfomations" EntitySet="UserPersonalInfomations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPostComments_dbo_UserPosts_PostId" Association="Self.FK_dbo_UserPostComments_dbo_UserPosts_PostId">
+      <End Role="UserPosts" EntitySet="UserPosts" />
+      <End Role="UserPostComments" EntitySet="UserPostComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPostComments_dbo_Users_UserId" Association="Self.FK_dbo_UserPostComments_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPostComments" EntitySet="UserPostComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPosts_dbo_Users_UserId" Association="Self.FK_dbo_UserPosts_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPosts" EntitySet="UserPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry" Association="Self.FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry">
+      <End Role="IndustryTypes" EntitySet="IndustryTypes" />
+      <End Role="UserProfessionalQualifications" EntitySet="UserProfessionalQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserProfessionalQualifications_dbo_Users_UserId" Association="Self.FK_dbo_UserProfessionalQualifications_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserProfessionalQualifications" EntitySet="UserProfessionalQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserQualifications_dbo_Degrees_DegreeName" Association="Self.FK_dbo_UserQualifications_dbo_Degrees_DegreeName">
+      <End Role="Degrees" EntitySet="Degrees" />
+      <End Role="UserQualifications" EntitySet="UserQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserQualifications_dbo_Users_UserId" Association="Self.FK_dbo_UserQualifications_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserQualifications" EntitySet="UserQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserResumes_dbo_Users_UserId" Association="Self.FK_dbo_UserResumes_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserResumes" EntitySet="UserResumes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_Cities_CityId" Association="Self.FK_dbo_Users_dbo_Cities_CityId">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_Countries_CountryName" Association="Self.FK_dbo_Users_dbo_Countries_CountryName">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_States_StateId" Association="Self.FK_dbo_Users_dbo_States_StateId">
+      <End Role="States" EntitySet="States" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserVideos_dbo_Users_UserId" Association="Self.FK_dbo_UserVideos_dbo_Users_UserId">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserVideos" EntitySet="UserVideos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

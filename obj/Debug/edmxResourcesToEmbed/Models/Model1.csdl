@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="proworldzdbNEWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="proworldzdbNEWEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="proworldzdbNEWModel.C__MigrationHistory" />
+    <EntitySet Name="Cities" EntityType="proworldzdbNEWModel.City" />
+    <EntitySet Name="Communities" EntityType="proworldzdbNEWModel.Community" />
+    <EntitySet Name="ContactUs" EntityType="proworldzdbNEWModel.ContactU" />
+    <EntitySet Name="Countries" EntityType="proworldzdbNEWModel.Country" />
+    <EntitySet Name="Degrees" EntityType="proworldzdbNEWModel.Degree" />
+    <EntitySet Name="Friends" EntityType="proworldzdbNEWModel.Friend" />
+    <EntitySet Name="IndustryTypes" EntityType="proworldzdbNEWModel.IndustryType" />
+    <EntitySet Name="LatestTechnologies" EntityType="proworldzdbNEWModel.LatestTechnology" />
+    <EntitySet Name="LatestTutorials" EntityType="proworldzdbNEWModel.LatestTutorial" />
+    <EntitySet Name="Lkp_FriendShipStatus" EntityType="proworldzdbNEWModel.Lkp_FriendShipStatus" />
+    <EntitySet Name="MasterContents" EntityType="proworldzdbNEWModel.MasterContent" />
+    <EntitySet Name="MasterFilePaths" EntityType="proworldzdbNEWModel.MasterFilePath" />
+    <EntitySet Name="MasterModuleTypeDatas" EntityType="proworldzdbNEWModel.MasterModuleTypeData" />
+    <EntitySet Name="MasterUrls" EntityType="proworldzdbNEWModel.MasterUrl" />
+    <EntitySet Name="States" EntityType="proworldzdbNEWModel.State" />
+    <EntitySet Name="UserGeneralInfomations" EntityType="proworldzdbNEWModel.UserGeneralInfomation" />
+    <EntitySet Name="UserPersonalInfomations" EntityType="proworldzdbNEWModel.UserPersonalInfomation" />
+    <EntitySet Name="UserPostComments" EntityType="proworldzdbNEWModel.UserPostComment" />
+    <EntitySet Name="UserPosts" EntityType="proworldzdbNEWModel.UserPost" />
+    <EntitySet Name="UserProfessionalQualifications" EntityType="proworldzdbNEWModel.UserProfessionalQualification" />
+    <EntitySet Name="UserQualifications" EntityType="proworldzdbNEWModel.UserQualification" />
+    <EntitySet Name="UserResumes" EntityType="proworldzdbNEWModel.UserResume" />
+    <EntitySet Name="Users" EntityType="proworldzdbNEWModel.User" />
+    <EntitySet Name="UserTypes" EntityType="proworldzdbNEWModel.UserType" />
+    <EntitySet Name="UserVideos" EntityType="proworldzdbNEWModel.UserVideo" />
+    <AssociationSet Name="FK_dbo_Cities_dbo_States_StateId" Association="proworldzdbNEWModel.FK_dbo_Cities_dbo_States_StateId">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_Cities_CityId" Association="proworldzdbNEWModel.FK_dbo_Users_dbo_Cities_CityId">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_States_dbo_Countries_CountryId" Association="proworldzdbNEWModel.FK_dbo_States_dbo_Countries_CountryId">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_Countries_CountryName" Association="proworldzdbNEWModel.FK_dbo_Users_dbo_Countries_CountryName">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserQualifications_dbo_Degrees_DegreeName" Association="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Degrees_DegreeName">
+      <End Role="Degree" EntitySet="Degrees" />
+      <End Role="UserQualification" EntitySet="UserQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId" Association="proworldzdbNEWModel.FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId">
+      <End Role="Lkp_FriendShipStatus" EntitySet="Lkp_FriendShipStatus" />
+      <End Role="Friend" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Friends_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_Friends_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Friend" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry" Association="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry">
+      <End Role="IndustryType" EntitySet="IndustryTypes" />
+      <End Role="UserProfessionalQualification" EntitySet="UserProfessionalQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LatestTechnologies_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_LatestTechnologies_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="LatestTechnology" EntitySet="LatestTechnologies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LatestTutorials_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_LatestTutorials_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="LatestTutorial" EntitySet="LatestTutorials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_States_StateId" Association="proworldzdbNEWModel.FK_dbo_Users_dbo_States_StateId">
+      <End Role="State" EntitySet="States" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserGeneralInfomations_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserGeneralInfomations_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserGeneralInfomation" EntitySet="UserGeneralInfomations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPersonalInfomations_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserPersonalInfomations_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserPersonalInfomation" EntitySet="UserPersonalInfomations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPostComments_dbo_UserPosts_PostId" Association="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_UserPosts_PostId">
+      <End Role="UserPost" EntitySet="UserPosts" />
+      <End Role="UserPostComment" EntitySet="UserPostComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPostComments_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserPostComment" EntitySet="UserPostComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPosts_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserPosts_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserPost" EntitySet="UserPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserProfessionalQualifications_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserProfessionalQualification" EntitySet="UserProfessionalQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserQualifications_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserQualification" EntitySet="UserQualifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserResumes_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserResumes_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserResume" EntitySet="UserResumes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserVideos_dbo_Users_UserId" Association="proworldzdbNEWModel.FK_dbo_UserVideos_dbo_Users_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserVideo" EntitySet="UserVideos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="State" Relationship="proworldzdbNEWModel.FK_dbo_Cities_dbo_States_StateId" FromRole="City" ToRole="State" />
+    <NavigationProperty Name="Users" Relationship="proworldzdbNEWModel.FK_dbo_Users_dbo_Cities_CityId" FromRole="City" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Community">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactU">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="States" Relationship="proworldzdbNEWModel.FK_dbo_States_dbo_Countries_CountryId" FromRole="Country" ToRole="State" />
+    <NavigationProperty Name="Users" Relationship="proworldzdbNEWModel.FK_dbo_Users_dbo_Countries_CountryName" FromRole="Country" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Degree">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserQualifications" Relationship="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Degrees_DegreeName" FromRole="Degree" ToRole="UserQualification" />
+  </EntityType>
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="FriendId" Type="Int32" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FriendShipStatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Lkp_FriendShipStatus" Relationship="proworldzdbNEWModel.FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId" FromRole="Friend" ToRole="Lkp_FriendShipStatus" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_Friends_dbo_Users_UserId" FromRole="Friend" ToRole="User" />
+  </EntityType>
+  <EntityType Name="IndustryType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserProfessionalQualifications" Relationship="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry" FromRole="IndustryType" ToRole="UserProfessionalQualification" />
+  </EntityType>
+  <EntityType Name="LatestTechnology">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommunityId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="SubCommunityId" Type="Int32" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VideoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_LatestTechnologies_dbo_Users_UserId" FromRole="LatestTechnology" ToRole="User" />
+  </EntityType>
+  <EntityType Name="LatestTutorial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommunityId" Type="Int32" Nullable="false" />
+    <Property Name="SubCommunityId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VideoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_LatestTutorials_dbo_Users_UserId" FromRole="LatestTutorial" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Lkp_FriendShipStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Friends" Relationship="proworldzdbNEWModel.FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId" FromRole="Lkp_FriendShipStatus" ToRole="Friend" />
+  </EntityType>
+  <EntityType Name="MasterContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleId" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MasterFilePath">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleId" Type="Int32" Nullable="false" />
+    <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MasterModuleTypeData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleId" Type="Int32" Nullable="false" />
+    <Property Name="ModuleTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MasterUrl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleId" Type="Int32" Nullable="false" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cities" Relationship="proworldzdbNEWModel.FK_dbo_Cities_dbo_States_StateId" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="proworldzdbNEWModel.FK_dbo_States_dbo_Countries_CountryId" FromRole="State" ToRole="Country" />
+    <NavigationProperty Name="Users" Relationship="proworldzdbNEWModel.FK_dbo_Users_dbo_States_StateId" FromRole="State" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserGeneralInfomation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserGeneralInfomations_dbo_Users_UserId" FromRole="UserGeneralInfomation" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserPersonalInfomation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserPersonalInfomations_dbo_Users_UserId" FromRole="UserPersonalInfomation" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserPostComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="PostId" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UserPost" Relationship="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_UserPosts_PostId" FromRole="UserPostComment" ToRole="UserPost" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_Users_UserId" FromRole="UserPostComment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="PostType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserPostComments" Relationship="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_UserPosts_PostId" FromRole="UserPost" ToRole="UserPostComment" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserPosts_dbo_Users_UserId" FromRole="UserPost" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserProfessionalQualification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Designation" Type="Int32" Nullable="false" />
+    <Property Name="Salary" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="IsCurrentEmployee" Type="Boolean" Nullable="false" />
+    <Property Name="CurrentIndustry" Type="Int32" Nullable="false" />
+    <Property Name="UserRole" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Skill" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="IndustryType" Relationship="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry" FromRole="UserProfessionalQualification" ToRole="IndustryType" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_Users_UserId" FromRole="UserProfessionalQualification" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserQualification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DegreeName" Type="Int32" Nullable="false" />
+    <Property Name="Percentage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Degree" Relationship="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Degrees_DegreeName" FromRole="UserQualification" ToRole="Degree" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Users_UserId" FromRole="UserQualification" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserResume">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="IsVisaHolder" Type="Boolean" Nullable="false" />
+    <Property Name="IsForeignWorker" Type="Boolean" Nullable="false" />
+    <Property Name="TotalExperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResumePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CoverLetterPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResumeContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CoverLetterContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserResumes_dbo_Users_UserId" FromRole="UserResume" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommunityId" Type="Int32" Nullable="false" />
+    <Property Name="SubCommunityId" Type="Int32" Nullable="false" />
+    <Property Name="CommunityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SubCommunityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="StateId" Type="Int32" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsOnline" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="proworldzdbNEWModel.FK_dbo_Users_dbo_Cities_CityId" FromRole="User" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="proworldzdbNEWModel.FK_dbo_Users_dbo_Countries_CountryName" FromRole="User" ToRole="Country" />
+    <NavigationProperty Name="Friends" Relationship="proworldzdbNEWModel.FK_dbo_Friends_dbo_Users_UserId" FromRole="User" ToRole="Friend" />
+    <NavigationProperty Name="LatestTechnologies" Relationship="proworldzdbNEWModel.FK_dbo_LatestTechnologies_dbo_Users_UserId" FromRole="User" ToRole="LatestTechnology" />
+    <NavigationProperty Name="LatestTutorials" Relationship="proworldzdbNEWModel.FK_dbo_LatestTutorials_dbo_Users_UserId" FromRole="User" ToRole="LatestTutorial" />
+    <NavigationProperty Name="State" Relationship="proworldzdbNEWModel.FK_dbo_Users_dbo_States_StateId" FromRole="User" ToRole="State" />
+    <NavigationProperty Name="UserGeneralInfomations" Relationship="proworldzdbNEWModel.FK_dbo_UserGeneralInfomations_dbo_Users_UserId" FromRole="User" ToRole="UserGeneralInfomation" />
+    <NavigationProperty Name="UserPersonalInfomations" Relationship="proworldzdbNEWModel.FK_dbo_UserPersonalInfomations_dbo_Users_UserId" FromRole="User" ToRole="UserPersonalInfomation" />
+    <NavigationProperty Name="UserPostComments" Relationship="proworldzdbNEWModel.FK_dbo_UserPostComments_dbo_Users_UserId" FromRole="User" ToRole="UserPostComment" />
+    <NavigationProperty Name="UserPosts" Relationship="proworldzdbNEWModel.FK_dbo_UserPosts_dbo_Users_UserId" FromRole="User" ToRole="UserPost" />
+    <NavigationProperty Name="UserProfessionalQualifications" Relationship="proworldzdbNEWModel.FK_dbo_UserProfessionalQualifications_dbo_Users_UserId" FromRole="User" ToRole="UserProfessionalQualification" />
+    <NavigationProperty Name="UserQualifications" Relationship="proworldzdbNEWModel.FK_dbo_UserQualifications_dbo_Users_UserId" FromRole="User" ToRole="UserQualification" />
+    <NavigationProperty Name="UserResumes" Relationship="proworldzdbNEWModel.FK_dbo_UserResumes_dbo_Users_UserId" FromRole="User" ToRole="UserResume" />
+    <NavigationProperty Name="UserVideos" Relationship="proworldzdbNEWModel.FK_dbo_UserVideos_dbo_Users_UserId" FromRole="User" ToRole="UserVideo" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserVideo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="VideoResumeUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkYouTube1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkYouTube2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkYouTube3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkYouTube4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkYouTube5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkUrl1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkUrl2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ArtWorkUrl3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ModifiedBy" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="proworldzdbNEWModel.FK_dbo_UserVideos_dbo_Users_UserId" FromRole="UserVideo" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_dbo_Cities_dbo_States_StateId">
+    <End Type="proworldzdbNEWModel.State" Role="State" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_Cities_CityId">
+    <End Type="proworldzdbNEWModel.City" Role="City" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_States_dbo_Countries_CountryId">
+    <End Type="proworldzdbNEWModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_Countries_CountryName">
+    <End Type="proworldzdbNEWModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserQualifications_dbo_Degrees_DegreeName">
+    <End Type="proworldzdbNEWModel.Degree" Role="Degree" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserQualification" Role="UserQualification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degree">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserQualification">
+        <PropertyRef Name="DegreeName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Friends_dbo_Lkp_FriendShipStatus_FriendShipStatusId">
+    <End Type="proworldzdbNEWModel.Lkp_FriendShipStatus" Role="Lkp_FriendShipStatus" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.Friend" Role="Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lkp_FriendShipStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="FriendShipStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Friends_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.Friend" Role="Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserProfessionalQualifications_dbo_IndustryTypes_CurrentIndustry">
+    <End Type="proworldzdbNEWModel.IndustryType" Role="IndustryType" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserProfessionalQualification" Role="UserProfessionalQualification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndustryType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfessionalQualification">
+        <PropertyRef Name="CurrentIndustry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LatestTechnologies_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.LatestTechnology" Role="LatestTechnology" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestTechnology">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LatestTutorials_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.LatestTutorial" Role="LatestTutorial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestTutorial">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_States_StateId">
+    <End Type="proworldzdbNEWModel.State" Role="State" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserGeneralInfomations_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserGeneralInfomation" Role="UserGeneralInfomation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGeneralInfomation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPersonalInfomations_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserPersonalInfomation" Role="UserPersonalInfomation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPersonalInfomation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPostComments_dbo_UserPosts_PostId">
+    <End Type="proworldzdbNEWModel.UserPost" Role="UserPost" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserPostComment" Role="UserPostComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPostComment">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPostComments_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserPostComment" Role="UserPostComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPostComment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPosts_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserPost" Role="UserPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPost">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserProfessionalQualifications_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserProfessionalQualification" Role="UserProfessionalQualification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfessionalQualification">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserQualifications_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserQualification" Role="UserQualification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserQualification">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserResumes_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserResume" Role="UserResume" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserResume">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserVideos_dbo_Users_UserId">
+    <End Type="proworldzdbNEWModel.User" Role="User" Multiplicity="1" />
+    <End Type="proworldzdbNEWModel.UserVideo" Role="UserVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserVideo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

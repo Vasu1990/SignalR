@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SignalRUpdates.Repo.Messages>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommunityName)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Username)
+            </th>
+            <td>
+
+        </tr>
+    }
+</table>
